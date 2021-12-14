@@ -102,7 +102,6 @@ func TestChannelSelect1(t *testing.T) {
 	errorIfFalse(t, ok, "must be string")
 	str := string(lstr)
 	errorIfNotEqual(t, "received:1received:2received:3quitchannel closed", str)
-
 }
 
 func TestChannelSelect2(t *testing.T) {

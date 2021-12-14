@@ -303,7 +303,7 @@ func TestLoadFileForShebang(t *testing.T) {
 
 	err = ioutil.WriteFile(tmpFile.Name(), []byte(`#!/path/to/lua
 print("hello")
-`), 0644)
+`), 0o644)
 	errorIfNotNil(t, err)
 
 	defer func() {

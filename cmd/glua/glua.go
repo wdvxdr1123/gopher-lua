@@ -3,11 +3,13 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/chzyer/readline"
-	"github.com/yuin/gopher-lua"
-	"github.com/yuin/gopher-lua/parse"
 	"os"
 	"runtime/pprof"
+
+	"github.com/chzyer/readline"
+
+	"github.com/wdvxdr1123/gopher-lua"
+	"github.com/wdvxdr1123/gopher-lua/parse"
 )
 
 func main() {

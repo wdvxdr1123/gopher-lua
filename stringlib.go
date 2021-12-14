@@ -4,22 +4,22 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/yuin/gopher-lua/pm"
+	"github.com/wdvxdr1123/gopher-lua/pm"
 )
 
 const emptyLString LString = LString("")
 
 func OpenString(L *LState) int {
 	var mod *LTable
-	//_, ok := L.G.builtinMts[int(LTString)]
-	//if !ok {
+	// _, ok := L.G.builtinMts[int(LTString)]
+	// if !ok {
 	mod = L.RegisterModule(StringLibName, strFuncs).(*LTable)
 	gmatch := L.NewClosure(strGmatch, L.NewFunction(strGmatchIter))
 	mod.RawSetString("gmatch", gmatch)
 	mod.RawSetString("gfind", gmatch)
 	mod.RawSetString("__index", mod)
 	L.G.builtinMts[int(LTString)] = mod
-	//}
+	// }
 	L.Push(mod)
 	return 1
 }
@@ -197,7 +197,6 @@ func capturedString(L *LState, m *pm.MatchData, str string, idx int) string {
 	} else {
 		return str[m.Capture(idx):m.Capture(idx+1)]
 	}
-
 }
 
 func strGsubDoReplace(str string, info []replaceInfo) string {
@@ -209,7 +208,7 @@ func strGsubDoReplace(str string, info []replaceInfo) string {
 		b2 := []byte("")
 		index2 := offset + replace.Indicies[1]
 		if index2 <= len(buf) {
-			b2 = append(b2, buf[index2:len(buf)]...)
+			b2 = append(b2, buf[index2:]...)
 		}
 		buf = append(b1, replace.String...)
 		buf = append(buf, b2...)

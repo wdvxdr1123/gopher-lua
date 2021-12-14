@@ -77,7 +77,6 @@ func TestTableInsert(t *testing.T) {
 	tbl = newLTable(0, 0)
 	tbl.Insert(5, LNumber(10))
 	errorIfNotEqual(t, LNumber(10), tbl.RawGetInt(5))
-
 }
 
 func TestTableMaxN(t *testing.T) {
@@ -107,7 +106,6 @@ func TestTableRemove(t *testing.T) {
 	tbl.Append(LFalse)
 	errorIfNotEqual(t, LFalse, tbl.Remove(-1))
 	errorIfNotEqual(t, 2, tbl.MaxN())
-
 }
 
 func TestTableRawSetInt(t *testing.T) {

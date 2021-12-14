@@ -373,7 +373,6 @@ func TestCoroutineApi1(t *testing.T) {
 	errorIfNotEqual(t, ResumeError, st)
 	errorIfNil(t, err)
 	errorIfFalse(t, strings.Contains(err.Error(), "can not resume a dead thread"), "can not resume a dead thread")
-
 }
 
 func TestContextTimeout(t *testing.T) {
@@ -449,7 +448,6 @@ func TestContextWithCroutine(t *testing.T) {
 	_, err, values = L.Resume(co, fn)
 	errorIfNil(t, err)
 	errorIfFalse(t, strings.Contains(err.Error(), "context canceled"), "coroutine execution must be canceled when the parent context is canceled")
-
 }
 
 func TestPCallAfterFail(t *testing.T) {
