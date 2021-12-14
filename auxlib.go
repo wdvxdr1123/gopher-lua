@@ -114,7 +114,7 @@ func (ls *LState) CheckTypes(n int, typs ...LValueType) {
 			return
 		}
 	}
-	buf := []string{}
+	buf := make([]string, 0, len(typs))
 	for _, typ := range typs {
 		buf = append(buf, typ.String())
 	}

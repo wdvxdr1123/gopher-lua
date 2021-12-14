@@ -129,7 +129,7 @@ type opProp struct {
 	Type     opType
 }
 
-var opProps = []opProp{
+var opProps = [...]opProp{
 	{"MOVE", false, true, opArgModeR, opArgModeN, opTypeABC},
 	{"MOVEN", false, true, opArgModeR, opArgModeN, opTypeABC},
 	{"LOADK", false, true, opArgModeK, opArgModeN, opTypeABx},

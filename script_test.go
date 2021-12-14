@@ -13,7 +13,7 @@ import (
 
 const maxMemory = 40
 
-var gluaTests []string = []string{
+var gluaTests = []string{
 	"base.lua",
 	"coroutine.lua",
 	"db.lua",
@@ -25,7 +25,7 @@ var gluaTests []string = []string{
 	"strings.lua",
 }
 
-var luaTests []string = []string{
+var luaTests = []string{
 	"attrib.lua",
 	"calls.lua",
 	"closure.lua",
@@ -144,4 +144,21 @@ func TestGlua(t *testing.T) {
 
 func TestLua(t *testing.T) {
 	testScriptDir(t, luaTests, "_lua5.1-tests")
+}
+
+func TestRunFibonacci(t *testing.T) {
+	L := NewState()
+	defer L.Close()
+	errorIfScriptFail(t, L, `
+function fib(n)
+    if n == 0 then
+        return 0
+    elseif n == 1 then
+        return 1
+    end
+    return fib(n-1) + fib(n-2)
+end
+
+fib(35)
+	`)
 }
